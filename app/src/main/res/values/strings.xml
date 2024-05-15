@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">UTSIntentApp</string>
+    <string-array name="fakultas_array">
+        <item>FTI</item>
+        <item>DKV</item>
+        <item>FEB</item>
+    </string-array>
+</resources>
