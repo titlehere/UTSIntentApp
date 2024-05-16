@@ -13,6 +13,7 @@ class ResultActivity : Activity() {
 
         val tvResult = findViewById<TextView>(R.id.tvResult)
         val btnBack = findViewById<Button>(R.id.btnBack)
+        val btnHapus = findViewById<Button>(R.id.btnHapus)
 
         val sharedPref = getSharedPreferences("MahasiswaData", MODE_PRIVATE)
         val size = sharedPref.getInt("size", 0)
@@ -33,6 +34,23 @@ class ResultActivity : Activity() {
         btnBack.setOnClickListener {
             val intent = Intent(this, InputActivity::class.java)
             startActivity(intent)
+        }
+        btnHapus.setOnClickListener {
+            if (size > 0) {
+                val editor = sharedPref.edit()
+                val newSize = size - 1
+
+                editor.remove("nama_$newSize")
+                editor.remove("nim_$newSize")
+                editor.remove("fakultas_$newSize")
+                editor.remove("jurusan_$newSize")
+                editor.putInt("size", newSize)
+                editor.apply()
+
+                // Refresh the ResultActivity to show the updated list
+                finish()
+                startActivity(intent)
+            }
         }
     }
 }
