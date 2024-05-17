@@ -4,37 +4,148 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/etNama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nama"
-        android:padding="8dp" />
+    <ImageView
+        android:layout_width="27dp"
+        android:layout_height="41dp"
+        android:layout_gravity="center"
+        android:src="@drawable/spiderman" />
 
     <EditText
-        android:id="@+id/etNIM"
+        android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="NIM"
+        android:hint="Title"
         android:padding="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Watch for"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+    <RadioGroup
+        android:id="@+id/rgWatchFor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rbAdult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adult (17+)" />
+        <RadioButton
+            android:id="@+id/rbKids"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kids" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Genre"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <CheckBox
+            android:id="@+id/cbThriller"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Thriller" />
+        <CheckBox
+            android:id="@+id/cbHorror"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Horror" />
+        <CheckBox
+            android:id="@+id/cbAction"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Action" />
+        <CheckBox
+            android:id="@+id/cbRomance"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Romance" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <CheckBox
+            android:id="@+id/cbComedy"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Comedy" />
+        <CheckBox
+            android:id="@+id/cbFantasy"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Fantasy" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Year"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="202.."
+        android:inputType="number"
+        android:padding="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration (Hour)"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
 
     <Spinner
-        android:id="@+id/spinnerFakultas"
+        android:id="@+id/spinnerHour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:entries="@array/hours_array"
         android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/etJurusan"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration (Minutes)"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/spinnerMinutes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Jurusan"
+        android:entries="@array/minutes_array"
         android:padding="8dp" />
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Simpan"
-        android:padding="8dp" />
+        android:layout_gravity="center"
+        android:text="OK"
+        android:padding="16dp" />
 </LinearLayout>

@@ -15,18 +15,20 @@ class ResultActivity : Activity() {
         val btnBack = findViewById<Button>(R.id.btnBack)
         val btnHapus = findViewById<Button>(R.id.btnHapus)
 
-        val sharedPref = getSharedPreferences("MahasiswaData", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("MovieData", MODE_PRIVATE)
         val size = sharedPref.getInt("size", 0)
 
         val stringBuilder = StringBuilder()
 
         for (i in 0 until size) {
-            val nama = sharedPref.getString("nama_$i", "N/A")
-            val nim = sharedPref.getString("nim_$i", "N/A")
-            val fakultas = sharedPref.getString("fakultas_$i", "N/A")
-            val jurusan = sharedPref.getString("jurusan_$i", "N/A")
+            val title = sharedPref.getString("title_$i", "N/A")
+            val watchFor = sharedPref.getString("watchFor_$i", "N/A")
+            val genres = sharedPref.getString("genres_$i", "N/A")
+            val year = sharedPref.getString("year_$i", "N/A")
+            val durationHour = sharedPref.getString("durationHour_$i", "N/A")
+            val durationMinutes = sharedPref.getString("durationMinutes_$i", "N/A")
 
-            stringBuilder.append("Nama: $nama\nNIM: $nim\nFakultas: $fakultas\nJurusan: $jurusan\n\n")
+            stringBuilder.append("Title: $title\nWatch for: $watchFor\nGenres: $genres\nYear: $year\nDuration: $durationHour Hours, $durationMinutes Minutes\n\n")
         }
 
         tvResult.text = stringBuilder.toString()
@@ -35,15 +37,18 @@ class ResultActivity : Activity() {
             val intent = Intent(this, InputActivity::class.java)
             startActivity(intent)
         }
+
         btnHapus.setOnClickListener {
             if (size > 0) {
                 val editor = sharedPref.edit()
                 val newSize = size - 1
 
-                editor.remove("nama_$newSize")
-                editor.remove("nim_$newSize")
-                editor.remove("fakultas_$newSize")
-                editor.remove("jurusan_$newSize")
+                editor.remove("title_$newSize")
+                editor.remove("watchFor_$newSize")
+                editor.remove("genres_$newSize")
+                editor.remove("year_$newSize")
+                editor.remove("durationHour_$newSize")
+                editor.remove("durationMinutes_$newSize")
                 editor.putInt("size", newSize)
                 editor.apply()
 
